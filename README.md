@@ -2,6 +2,14 @@
 
 > 这并不是一个脚手架项目，是一个基础demo项目，剥离了实际业务的参考项目。新建vue后台项目，可以在本项目基础上修改。
 
+## Demo
+ 在线[Demo](https://jibenziliao.github.io/vue-admin-generator)
+ 密码随便填
+
+ ![登录页](./img/login.png)
+
+ ![首页](./img/home.png)
+
 ## Build Setup
 
 ``` bash
