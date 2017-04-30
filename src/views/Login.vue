@@ -43,8 +43,8 @@
       return {
         logining: false,
         ruleForm2: {
-          account: '963693512@qq.com',
-          checkPass: '12345678'
+          account: 'admin',
+          checkPass: '123456'
         },
         rules2: {
           account: [
