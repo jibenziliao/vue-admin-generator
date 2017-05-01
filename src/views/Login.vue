@@ -33,6 +33,21 @@
       </el-button>
       <!--<el-button @click.native.prevent="handleReset2">重置</el-button>-->
     </el-form-item>
+    <el-form-item>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          用户名: admin
+        </el-col>
+        <el-col :span="12">
+          密码: 123456
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col>
+          可登录的用户在${project_root}/src/mock/data/exampleData.js中
+        </el-col>
+      </el-row>
+    </el-form-item>
   </el-form>
 </template>
 
