@@ -4,15 +4,16 @@
 
 ## Description
 
-  [x] 使用Mockjs模拟接口数据(待完善)
+- [x] 使用Mockjs模拟接口数据(待完善)
 
-  [x] axios实现网络请求(后续封装统一错误处理)
+- [x] axios实现网络请求(后续封装统一错误处理)
 
-  [x] vuex状态管理(目前每个请求都有请求开始、请求成功、请求失败三种状态，比较麻烦，正在想办法优化)
+- [x] vuex状态管理(目前每个请求都有请求开始、请求成功、请求失败三种状态，比较麻烦，正在想办法优化)
 
-  [] 路由权限控制
+- [] 路由权限控制
 
 ## Demo
+
  在线[Demo](https://jibenziliao.github.io/vue-admin-generator)
 
  用户名:admin
