@@ -28,7 +28,7 @@
       <el-button type="primary"
                  style="width:100%;"
                  @click.native.prevent="handleSubmit2"
-                 :loading="logining">
+                 :loading="loading">
         登录
       </el-button>
       <!--<el-button @click.native.prevent="handleReset2">重置</el-button>-->
@@ -38,10 +38,10 @@
 
 <script>
   import {LoginUsers} from '../mock/data/exampleData'
+  import {mapGetters} from 'vuex'
   export default {
     data () {
       return {
-        logining: false,
         ruleForm2: {
           account: 'admin',
           checkPass: '123456'
@@ -66,39 +66,48 @@
       handleSubmit2 (ev) {
         this.$refs.ruleForm2.validate((valid) => {
           if (valid) {
-            this.logining = true
-            /* let loginParams = {
+            let loginParams = {
               username: this.ruleForm2.account,
               password: this.ruleForm2.checkPass
-            } */
-
-            setTimeout(() => {
-              this.logining = false
-              sessionStorage.setItem('user', JSON.stringify(LoginUsers[0]))
-              this.$router.push({path: '/'})
-            }, 2000)
-
-            /* requestLoginTest(loginParams).then(data => {
-              this.logining = false
-              const {msg, code, user} = data
-              if (code !== 200) {
-                this.$message({
-                  message: msg,
-                  type: 'error'
-                })
-              } else {
-                sessionStorage.setItem('user', JSON.stringify(user))
-                this.$router.push({path: '/'})
-              }
-            }) */
+            }
+            this.login(loginParams)
           } else {
-            console.log('error submit!!')
             return false
           }
+        })
+      },
+      login (params) {
+        this.$store.dispatch('login', {
+          ...params,
+          resolve: (res) => {
+            console.log(res)
+            this.successTip('登录')
+            sessionStorage.setItem('user', JSON.stringify(LoginUsers[0]))
+            this.$router.push({path: '/'})
+          },
+          reject: (err) => this.failedTip(err)
+        })
+      },
+      successTip (str) {
+        this.$notify({
+          title: '成功',
+          message: `${str}成功`,
+          type: 'success'
+        })
+      },
+      failedTip (str) {
+        this.$notify.error({
+          title: '错误',
+          message: str
         })
       }
     },
     mounted () {
+    },
+    computed: {
+      ...mapGetters([
+        'loading'
+      ])
     }
   }
 

@@ -8,11 +8,23 @@ const ExampleData = [{
 }]
 
 const LoginUsers = [{
-  id: 2,
-  username: '963693512@qq.com',
-  password: '12345678',
+  id: 1,
+  username: 'admin',
+  password: '123456',
   avatar: 'https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png',
   name: '张某某'
+}, {
+  id: 2,
+  username: 'developer',
+  password: '123456',
+  avatar: 'https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png',
+  name: '李四'
+}, {
+  id: 3,
+  username: 'guest',
+  password: '123456',
+  avatar: 'https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png',
+  name: '王五'
 }]
 const ExampleDataList = []
 
