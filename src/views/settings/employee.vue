@@ -72,9 +72,7 @@
         'commonAction'
       ]),
       handleCurrentChange (val) {
-        this.getList({
-          pageIndex: val
-        })
+        this.getList(val)
       },
       getList (params) {
         this.$store.dispatch('commonAction', {
