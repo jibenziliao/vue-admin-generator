@@ -5,6 +5,8 @@ const state = {
   userCount: 0,
   activeCount: 0,
   newCount: 0,
+  employeeList: [],
+  dataTotal: 0,
   pageLoading: false
 }
 
@@ -12,7 +14,9 @@ const getters = {
   userCount: state => state.userCount,
   activeCount: state => state.activeCount,
   newCount: state => state.newCount,
-  pageLoading: state => state.pageLoading
+  pageLoading: state => state.pageLoading,
+  employeeList: state => state.employeeList,
+  dataTotal: state => state.dataTotal
 }
 
 const actions = {

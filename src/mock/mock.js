@@ -2,7 +2,9 @@ import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import {
   LoginUsers,
-  controlData
+  controlData,
+  employeeList,
+  dataTotal
 } from './data/exampleData'
 import {RESPONSE_DELAY} from '../constants/constant'
 
@@ -38,5 +40,6 @@ export default {
     })
 
     mock.onGet('/control').reply(200, {code: 200, msg: '请求成功', controlData})
+    mock.onGet('/employees').reply(200, {code: 200, msg: '请求成功', employeeList, dataTotal})
   }
 }

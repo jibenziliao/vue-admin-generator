@@ -45,9 +45,29 @@ const controlData = Mock.mock({
   'newCount|1-99': 1
 })
 
+const employeeList = []
+
+for (let i = 0; i < 15; i++) {
+  employeeList.push(Mock.mock({
+    id: Mock.Random.guid(),
+    name: Mock.Random.cname(),
+    'age|18-60': 1,
+    joinDate: Mock.Random.date(),
+    'gender|1': [
+      '男',
+      '女'
+    ],
+    'state|1': true
+  }))
+}
+
+const dataTotal = 999
+
 export {
   ExampleData,
   LoginUsers,
   ExampleDataList,
-  controlData
+  controlData,
+  employeeList,
+  dataTotal
 }
