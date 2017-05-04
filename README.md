@@ -26,6 +26,8 @@
 
  ![首页](./img/home.png)
 
+ ![员工管理](./img/employee.gif)
+
 ## Description
 
   1. 全局通用的Vuex状态管理，可参考src/vuex/modules/control.js内的配置，所有的异步请求都共用一个action和固定的三个mutation方法。
