@@ -24,15 +24,21 @@ const actions = {
 
 const mutations = {
   [types.FETCH_BEGIN] (state, {params}) {
-    console.log(state, params)
+    state.controlLoading = true
   },
 
   [types.FETCH_SUCCESS] (state, {params, res}) {
-    console.log(state, params, res)
+    state.controlLoading = false
+    if (res.data.code === 200) {
+      params.resolve(state, res.data)
+    } else {
+      params.reject(state, res.data)
+    }
   },
 
   [types.FETCH_FAILED] (state, {params, err}) {
-    console.log(state, params, err)
+    state.controlLoading = false
+    params.reject(state, err)
   }
 }
 

@@ -27,10 +27,6 @@
   export default {
     data () {
       return {
-        // userCount: 999,
-        // activeCount: 999,
-        // newCount: 999,
-        // controlLoading: false
       }
     },
     methods: {
@@ -39,8 +35,12 @@
           url: '/control',
           method: 'get',
           data: {},
-          resolve: () => {},
-          reject: () => {}
+          resolve: (state, res) => {
+            state.userCount = res.controlData.userCount
+            state.activeCount = res.controlData.activeCount
+            state.newCount = res.controlData.newCount
+          },
+          reject: (state, err) => {}
         })
       }
     },

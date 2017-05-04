@@ -39,4 +39,15 @@ for (let i = 0; i < 86; i++) {
   }))
 }
 
-export { ExampleData, LoginUsers, ExampleDataList }
+const controlData = Mock.mock({
+  'userCount|1-9999': 1201,
+  'activeCount|1-9999': 728,
+  'newCount|1-9999': 1
+})
+
+export {
+  ExampleData,
+  LoginUsers,
+  ExampleDataList,
+  controlData
+}
