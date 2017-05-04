@@ -40,9 +40,9 @@ for (let i = 0; i < 86; i++) {
 }
 
 const controlData = Mock.mock({
-  'userCount|1-9999': 1201,
-  'activeCount|1-9999': 728,
-  'newCount|1-9999': 1
+  'userCount|1000-9999': 1201,
+  'activeCount|1-999': 728,
+  'newCount|1-99': 1
 })
 
 export {
