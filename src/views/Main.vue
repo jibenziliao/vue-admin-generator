@@ -23,19 +23,37 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   export default {
     data () {
       return {
-        userCount: 999,
-        activeCount: 999,
-        newCount: 999,
-        controlLoading: false
+        // userCount: 999,
+        // activeCount: 999,
+        // newCount: 999,
+        // controlLoading: false
       }
     },
     methods: {
-
+      getControlInfo () {
+        this.$store.dispatch('commonAction', {
+          url: '/control',
+          method: 'get',
+          data: {},
+          resolve: () => {},
+          reject: () => {}
+        })
+      }
     },
     mounted () {
+      this.getControlInfo()
+    },
+    computed: {
+      ...mapGetters([
+        'userCount',
+        'activeCount',
+        'newCount',
+        'controlLoading'
+      ])
     }
   }
 
