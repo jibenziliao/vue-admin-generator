@@ -5,14 +5,14 @@ const state = {
   userCount: 0,
   activeCount: 0,
   newCount: 0,
-  controlLoading: false
+  pageLoading: false
 }
 
 const getters = {
   userCount: state => state.userCount,
   activeCount: state => state.activeCount,
   newCount: state => state.newCount,
-  controlLoading: state => state.controlLoading
+  pageLoading: state => state.pageLoading
 }
 
 const actions = {
@@ -24,11 +24,11 @@ const actions = {
 
 const mutations = {
   [types.FETCH_BEGIN] (state, {params}) {
-    state.controlLoading = true
+    state.pageLoading = true
   },
 
   [types.FETCH_SUCCESS] (state, {params, res}) {
-    state.controlLoading = false
+    state.pageLoading = false
     if (res.data.code === 200) {
       params.resolve(state, res.data)
     } else {
@@ -37,7 +37,7 @@ const mutations = {
   },
 
   [types.FETCH_FAILED] (state, {params, err}) {
-    state.controlLoading = false
+    state.pageLoading = false
     params.reject(state, err)
   }
 }

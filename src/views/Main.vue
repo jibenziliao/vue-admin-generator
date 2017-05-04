@@ -2,7 +2,7 @@
   <section>
     <el-card class="box-card">
       <div class="text item"
-           v-loading.fullscreen.lock="controlLoading">
+           v-loading.fullscreen.lock="pageLoading">
         {{activeCount}}
       </div>
       <div class="item">活跃用户数/人</div>
@@ -52,7 +52,7 @@
         'userCount',
         'activeCount',
         'newCount',
-        'controlLoading'
+        'pageLoading'
       ])
     }
   }
