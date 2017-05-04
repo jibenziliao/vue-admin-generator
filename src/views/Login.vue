@@ -95,10 +95,12 @@
         this.$store.dispatch('login', {
           ...params,
           resolve: (res) => {
-            console.log(res)
             this.successTip('登录')
             sessionStorage.setItem('user', JSON.stringify(LoginUsers[0]))
-            this.$router.push({path: '/'})
+            // 登录成功提示展示收起有延时，不能立刻跳转首页
+            setTimeout(() => {
+              this.$router.push({path: '/'})
+            }, 1500)
           },
           reject: (err) => this.failedTip(err)
         })
