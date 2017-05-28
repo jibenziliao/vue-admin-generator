@@ -1,21 +1,21 @@
 <template>
-  <el-form :model="ruleForm2"
-           :rules="rules2"
-           ref="ruleForm2"
+  <el-form :model="ruleForm"
+           :rules="rules"
+           ref="ruleForm"
            label-position="left"
            label-width="0px"
            class="demo-ruleForm login-container">
     <h3 class="title">系统登录</h3>
     <el-form-item prop="account">
       <el-input type="text"
-                v-model="ruleForm2.account"
+                v-model="ruleForm.account"
                 auto-complete="off"
                 placeholder="账号">
       </el-input>
     </el-form-item>
     <el-form-item prop="checkPass">
       <el-input type="password"
-                v-model="ruleForm2.checkPass"
+                v-model="ruleForm.checkPass"
                 auto-complete="off"
                 placeholder="密码"></el-input>
     </el-form-item>
@@ -27,11 +27,10 @@
     <el-form-item style="width:100%;">
       <el-button type="primary"
                  style="width:100%;"
-                 @click.native.prevent="handleSubmit2"
+                 @click.native.prevent="handleSubmit"
                  :loading="loading">
         登录
       </el-button>
-      <!--<el-button @click.native.prevent="handleReset2">重置</el-button>-->
     </el-form-item>
     <el-form-item>
       <el-row :gutter="20">
@@ -57,33 +56,29 @@
   export default {
     data () {
       return {
-        ruleForm2: {
+        ruleForm: {
           account: 'admin',
           checkPass: '123456'
         },
-        rules2: {
+        rules: {
           account: [
             {required: true, message: '请输入账号', trigger: 'blur'}
-            // { validator: validaePass }
           ],
           checkPass: [
             {required: true, message: '请输入密码', trigger: 'blur'}
-            // { validator: validaePass2 }
           ]
         },
         checked: true
       }
     },
     methods: {
-      handleReset2 () {
-        this.$refs.ruleForm2.resetFields()
-      },
-      handleSubmit2 (ev) {
-        this.$refs.ruleForm2.validate((valid) => {
+      handleSubmit (ev) {
+        console.log(this.ruleForm)
+        this.$refs.ruleForm.validate((valid) => {
           if (valid) {
             let loginParams = {
-              username: this.ruleForm2.account,
-              password: this.ruleForm2.checkPass
+              username: this.ruleForm.account,
+              password: this.ruleForm.checkPass
             }
             this.login(loginParams)
           } else {
@@ -92,6 +87,7 @@
         })
       },
       login (params) {
+        console.log(params)
         this.$store.dispatch('login', {
           ...params,
           resolve: (res) => {
